@@ -1,43 +1,154 @@
-.App {
-  text-align: center;
-  padding: 50px;
-  background-color: #f5f5f5;
+/* App.css */
+
+/* Genel Sayfa Yapısı */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #000428, #004e92); /* Koyu mavi - uzay rengi */
+  color: #fff;
+  font-size: 16px;
+  overflow: hidden; /* Sayfa dışı taşmaları engelle */
+  height: 100vh;
+}
+
+/* Galaksi Arka Planı */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://cdn.pixabay.com/photo/2019/12/29/18/37/galaxy-4727223_960_720.jpg') no-repeat center center fixed; /* Galaksi görseli */
+  background-size: cover;
+  opacity: 0.4; /* Galaksi görünürlüğü */
+  z-index: -1;
+  animation: galaxyAnimation 100s infinite linear; /* Animasyon ekledik */
+}
+
+/* Galaksi Animasyonu (Hareketli) */
+@keyframes galaxyAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sayfa Konteyneri */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8); /* Hafif siyah şeffaf arka plan */
+  border-radius: 15px;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.App-header {
-  background-color: #4CAF50;
-  color: white;
-  padding: 40px;
-  border-radius: 20px;
-  max-width: 500px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.App-header h1 {
+.header h1 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  color: #fff;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-.App-header p {
-  font-size: 1.2rem;
-  margin: 20px 0;
+.header p {
+  font-size: 1.1rem;
+  color: #ccc;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.image-wrapper {
+/* Main Content */
+.main-content {
   display: flex;
-  justify-content: center;
-  margin: 20px 0;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .profile-img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
-  border: 5px solid #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  margin-bottom: 30px;
+  border: 5px solid #fff;
+}
+
+.main-content p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+/* Button */
+.btn {
+  padding: 15px 30px;
+  background-color: #ff7f00; /* Turuncu renk */
+  color: white;
+  border: none;
+  border-radius: 25px; /* Yuvarlak köşeler */
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 3D etkisi */
+  transition: all 0.3s ease; /* Geçiş efekti */
+}
+
+.btn:hover {
+  background-color: #ff6a00; /* Hover efekti */
+  transform: scale(1.05); /* Buton biraz büyüsün */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Hoverda gölgeyi artır */
+}
+
+.btn:active {
+  transform: scale(1); /* Tıklama sonrası normal boyuta döner */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Gölgeyi eski haline getir */
+}
+
+.btn:focus {
+  outline: none; /* Fokusa alındığında kenarlık yok */
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .main-content p {
+    font-size: 1rem;
+  }
+
+  .profile-img {
+    width: 200px;
+    height: 200px;
+  }
 }
